@@ -3,8 +3,9 @@ build/
 install/
 log/
 
-# Temporary files
-tmp/
+# Temporary files (keep drone.urdf)
+tmp/*
+!tmp/drone.urdf
 *.pyc
 __pycache__/
 
