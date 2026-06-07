@@ -1,0 +1,45 @@
+{
+  "name": "DroneVio ROS2 Humble",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  "runArgs": [
+    "--gpus", "all",
+    "--privileged",
+    "--network", "host",
+    "--ipc", "host",
+
+    "-e", "DISPLAY",
+    "-e", "WAYLAND_DISPLAY",
+    "-e", "XDG_RUNTIME_DIR",
+
+    "-e", "NVIDIA_VISIBLE_DEVICES=all",
+    "-e", "NVIDIA_DRIVER_CAPABILITIES=all",
+    "-e", "QT_X11_NO_MITSHM=1",
+
+    "-v", "/mnt/wslg:/mnt/wslg",
+    "-v", "/dev:/dev"
+  ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-iot.vscode-ros",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "rosdep update && rosdep install --from-paths src --ignore-src -r -y 2>/dev/null || true",
+
+  "remoteUser": "root"
+}

@@ -1,0 +1,55 @@
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Temporary files
+tmp/
+*.pyc
+__pycache__/
+
+# Container system directories (these are from the dev container filesystem, not source)
+etc/
+usr/
+var/
+root/
+opt/
+run/
+dev/
+proc/
+sys/
+
+# Large binary files
+*.tar.gz
+*.tar
+
+# OCI image files
+index.json
+manifest.json
+oci-layout
+blobs/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Gazebo log files
+*.log
+.gazebo/
+.sdformat/
+
+# RViz settings
+.rviz2/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# OS files
+.DS_Store
+Thumbs.db
